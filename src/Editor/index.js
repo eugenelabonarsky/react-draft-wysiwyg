@@ -231,7 +231,7 @@ export default class WysiwygEditor extends Component {
     }
   };
 
-  onChange: Function = (editorState: Object): void => {
+  onChange: Function = (editorState: Object, focus = false): void => {
     const { readOnly, onEditorStateChange } = this.props;
     if (
       !readOnly &&
@@ -248,6 +248,10 @@ export default class WysiwygEditor extends Component {
       } else {
         this.afterChange(editorState);
       }
+    }
+
+    if (focus) {
+      this.focusEditor();
     }
   };
 
